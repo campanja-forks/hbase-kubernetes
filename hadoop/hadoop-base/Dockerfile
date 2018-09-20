@@ -21,14 +21,14 @@ RUN  mkdir -p ${HADOOP_INSTALL_DIR} && \
 WORKDIR /tmp
 RUN apt-get update && \
     apt-get install -y build-essential maven lzop liblzo2-2 && \
-    wget http://www.oberhumer.com/opensource/lzo/download/lzo-2.09.tar.gz && \
-    tar zxvf lzo-2.09.tar.gz && \
-    cd lzo-2.09 && \
-    ./configure --enable-shared --prefix /usr/local/lzo-2.09 && \
+    wget http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz && \
+    tar zxvf lzo-2.10.tar.gz && \
+    cd lzo-2.10 && \
+    ./configure --enable-shared --prefix /usr/local/lzo-2.10 && \
     make && make install && \
     cd .. && git clone https://github.com/twitter/hadoop-lzo.git && cd hadoop-lzo && \
     git checkout release-0.4.20 && \
-    C_INCLUDE_PATH=/usr/local/lzo-2.09/include LIBRARY_PATH=/usr/local/lzo-2.09/lib mvn clean package && \
+    C_INCLUDE_PATH=/usr/local/lzo-2.10/include LIBRARY_PATH=/usr/local/lzo-2.10/lib mvn clean package && \
     apt-get remove -y build-essential maven && \
     apt-get clean autoclean && \
     apt-get autoremove --yes && \
@@ -37,8 +37,8 @@ RUN apt-get update && \
     tar -cBf - -C lib . | tar -xBvf - -C /tmp && \
     cp /tmp/libgplcompression* ${HADOOP_INSTALL_DIR}/lib/native/ && \
     cd /tmp/hadoop-lzo && cp target/hadoop-lzo-0.4.20.jar ${HADOOP_INSTALL_DIR}/share/hadoop/common/ && \
-    echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lzo-2.09/lib" >> ${HADOOP_INSTALL_DIR}/etc/hadoop/hadoop-env.sh && \
-    rm -rf /tmp/lzo-2.09* hadoop-lzo lib libgplcompression*
+    echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lzo-2.10/lib" >> ${HADOOP_INSTALL_DIR}/etc/hadoop/hadoop-env.sh && \
+    rm -rf /tmp/lzo-2.10* hadoop-lzo lib libgplcompression*
 
 # Enable jmx by default
 WORKDIR  ${HADOOP_INSTALL_DIR}
