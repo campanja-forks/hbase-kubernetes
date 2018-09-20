@@ -15,7 +15,7 @@ RUN  apt-get update && \
 
 # download hadoop
 RUN  mkdir -p ${HADOOP_INSTALL_DIR} && \
-     curl -L http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz | tar -xz --strip=1 -C ${HADOOP_INSTALL_DIR}
+     curl -L http://archive.apache.org/dist/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz | tar -xz --strip=1 -C ${HADOOP_INSTALL_DIR}
 
 # build LZO
 WORKDIR /tmp
