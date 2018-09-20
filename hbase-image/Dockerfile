@@ -1,9 +1,9 @@
-FROM java:7
+FROM java:8
 
 ENV HBASE_VERSION 1.2.7
 ENV HBASE_INSTALL_DIR /opt/hbase
 
-ENV JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 RUN mkdir -p ${HBASE_INSTALL_DIR} && \
     curl -L https://archive.apache.org/dist/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz | tar -xz --strip=1 -C ${HBASE_INSTALL_DIR}
