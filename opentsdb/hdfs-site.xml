@@ -3,34 +3,34 @@
 <configuration>
   <property>
     <name>dfs.nameservices</name>
-    <value>mycluster</value>
+    <value>rt_hbase</value>
   </property>
   <property>
-    <name>dfs.ha.namenodes.mycluster</name>
+    <name>dfs.ha.namenodes.rt_hbase</name>
     <value>nn1,nn2</value>
   </property>
   <property>
-    <name>dfs.namenode.rpc-address.mycluster.nn1</name>
+    <name>dfs.namenode.rpc-address.rt_hbase.nn1</name>
     <value>hadoop-namenode-1:8020</value>
   </property>
   <property>
-    <name>dfs.namenode.rpc-address.mycluster.nn2</name>
+    <name>dfs.namenode.rpc-address.rt_hbase.nn2</name>
     <value>hadoop-namenode-2:8020</value>
   </property>
   <property>
-    <name>dfs.namenode.http-address.mycluster.nn1</name>
+    <name>dfs.namenode.http-address.rt_hbase.nn1</name>
     <value>hadoop-namenode-1:50070</value>
   </property>
   <property>
-    <name>dfs.namenode.http-address.mycluster.nn2</name>
+    <name>dfs.namenode.http-address.rt_hbase.nn2</name>
     <value>hadoop-namenode-2:50070</value>
   </property>
   <property>
     <name>dfs.namenode.shared.edits.dir</name>
-    <value>qjournal://hadoop-journalnode-1:8485;hadoop-journalnode-2:8485;hadoop-journalnode-3:8485/mycluster</value>
+    <value>qjournal://hadoop-journalnode-1:8485;hadoop-journalnode-2:8485;hadoop-journalnode-3:8485/rt_hbase</value>
   </property>
   <property>
-    <name>dfs.client.failover.proxy.provider.mycluster</name>
+    <name>dfs.client.failover.proxy.provider.rt_hbase</name>
     <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
   </property>
   <property>
