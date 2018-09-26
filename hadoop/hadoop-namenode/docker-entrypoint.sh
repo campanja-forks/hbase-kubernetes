@@ -20,7 +20,11 @@ if [ ! -f ${HDFS_NAMENODE_ROOT_DIR}/current/VERSION ]; then
     bin/hdfs namenode -format -nonInteractive
 fi
 
-if [ "${HDFS_INIT_NAMENODE}" = "true" ]; then
+# This initializes the first node in a statefulset
+if [ "${HOSTNAME##*-}" = "0" ]; then
+    echo forcing initialize shared edits...
+    bin/hdfs namenode -initializeSharedEdits -nonInteractive
+elif [ "${HDFS_INIT_NAMENODE}" = "true" ]; then
     echo forcing initialize shared edits...
     bin/hdfs namenode -initializeSharedEdits -nonInteractive
 else
