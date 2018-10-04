@@ -4,7 +4,7 @@
 <configuration>
   <property>
     <name>fs.defaultFS</name>
-    <value>hdfs://rt_hbase</value>
+    <value>hdfs://rthbase</value>
   </property>
   <property>
     <name>io.compression.codecs</name>

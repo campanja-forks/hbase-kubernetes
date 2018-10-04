@@ -3,34 +3,34 @@
 <configuration>
   <property>
     <name>dfs.nameservices</name>
-    <value>rt_hbase</value>
+    <value>rthbase</value>
   </property>
   <property>
-    <name>dfs.ha.namenodes.rt_hbase</name>
+    <name>dfs.ha.namenodes.rthbase</name>
     <value>nn0,nn1</value>
   </property>
   <property>
-    <name>dfs.namenode.rpc-address.rt_hbase.nn0</name>
+    <name>dfs.namenode.rpc-address.rthbase.nn0</name>
     <value>hbase-master-0.hbase-master:8020</value>
   </property>
   <property>
-    <name>dfs.namenode.rpc-address.rt_hbase.nn1</name>
+    <name>dfs.namenode.rpc-address.rthbase.nn1</name>
     <value>hbase-master-1.hbase-master:8020</value>
   </property>
   <property>
-    <name>dfs.namenode.http-address.rt_hbase.nn0</name>
+    <name>dfs.namenode.http-address.rthbase.nn0</name>
     <value>hbase-master-0.hbase-master:50070</value>
   </property>
   <property>
-    <name>dfs.namenode.http-address.rt_hbase.nn1</name>
+    <name>dfs.namenode.http-address.rthbase.nn1</name>
     <value>hbase-master-1.hbase-master:50070</value>
   </property>
   <property>
     <name>dfs.namenode.shared.edits.dir</name>
-    <value>qjournal://hadoop-journalnode-0.hadoop-journalnode:8485;hadoop-journalnode-1.hadoop-journalnode:8485;hadoop-journalnode-2.hadoop-journalnode:8485/rt_hbase</value>
+    <value>qjournal://hadoop-journalnode-0.hadoop-journalnode:8485;hadoop-journalnode-1.hadoop-journalnode:8485;hadoop-journalnode-2.hadoop-journalnode:8485/rthbase</value>
   </property>
   <property>
-    <name>dfs.client.failover.proxy.provider.rt_hbase</name>
+    <name>dfs.client.failover.proxy.provider.rthbase</name>
     <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
   </property>
   <property>
