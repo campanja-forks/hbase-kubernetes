@@ -11,7 +11,7 @@ COPY  conf/id_rsa.pub /root/.ssh/id_rsa.pub
 
 ADD  docker-entrypoint.sh /usr/local/sbin/docker-entrypoint.sh
 
-VOLUME  ["${HDFS_NAMENODE_ROOT_DIR}"]
+#VOLUME  ["${HDFS_NAMENODE_ROOT_DIR}"]
 
 RUN \
     mkdir /var/run/sshd && \
