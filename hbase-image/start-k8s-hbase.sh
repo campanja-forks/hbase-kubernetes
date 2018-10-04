@@ -24,6 +24,9 @@ do
     fi
 done
 
+echo "/etc/hosts contains"
+cat /etc/hosts
+
 if [ "$HBASE_SERVER_TYPE" = "master" ]; then
     /opt/hbase/bin/hbase master start
 elif [ "$HBASE_SERVER_TYPE" = "regionserver" ]; then

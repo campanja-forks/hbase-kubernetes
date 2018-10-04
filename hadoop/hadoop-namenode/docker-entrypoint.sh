@@ -17,14 +17,20 @@ done
 
 if [ ! -f ${HDFS_NAMENODE_ROOT_DIR}/current/VERSION ]; then
     echo Formatting namenode root fs in ${HDFS_NAMENODE_ROOT_DIR}
-    bin/hdfs namenode -format -nonInteractive
+    if [ "${HDFS_FORCE_FORMAT}" = "true" ]; then
+        bin/hdfs namenode -format -force
+    else
+        bin/hdfs namenode -format -nonInteractive
+    fi
 fi
 
 # This initializes the first node in a statefulset
-if [ "${HOSTNAME##*-}" = "0" ]; then
-    echo forcing initialize shared edits...
-    bin/hdfs namenode -initializeSharedEdits -nonInteractive
-elif [ "${HDFS_INIT_NAMENODE}" = "true" ]; then
+#if [ "${HOSTNAME##*-}" = "0" ]; then
+#    echo forcing initialize shared edits...
+#    bin/hdfs namenode -initializeSharedEdits -nonInteractive || \
+#        (echo "can't start as master, try standby" ; \
+#         bin/hdfs namenode -bootstrapStandby -nonInteractive)
+if [ "${HDFS_INIT_NAMENODE}" = "true" ]; then
     echo forcing initialize shared edits...
     bin/hdfs namenode -initializeSharedEdits -nonInteractive
 else
